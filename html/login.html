@@ -1,22 +1,24 @@
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="144123911335-3hkig5vl02m9cmohu4rtd990tkohck28.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
-<div class="loginForm">
-    <form action="./php/loginValidation.php" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username">
-
-        <label for="password">Password</label>
-        <input type="password" name="password">
-        <br />
-        <button type="submit">Login</button>
-    </form>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" action="./php/loginValidation.php" method="post">
+            <label for="username">Username</label>
+            <input type="text" placeholder="username"/>
+            <label for="password">Password</label>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" align="center"></div>
+        </form>
+    </div>
 </div>
-<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
 <script>
     function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
