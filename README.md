@@ -23,6 +23,11 @@ how to start:
 ### Google Login
 requirements:
 
+oauth-credentials.json is located in the credentials file.
+
+this will allow the google client to load the credentials from the client app we have generated based on the google tutorial
+
+https://developers.google.com/identity/sign-in/web/sign-in
 
 how does it work:
 1. user clicks on login with google.
