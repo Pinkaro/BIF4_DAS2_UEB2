@@ -46,3 +46,41 @@ how does it work:
 result:
 1. If these tokens match, the request is valid, as it has been sent through the actual form in the web application
 2. If there is no match, the request will be considered as illegal and will be rejected.
+
+### HTTPS
+
+how does it work:
+1. Navigate to XAMPP\Apache
+2. Execute "makecert.bat" and finish the key/certificate creation in the cmd
+3. Navigate to XAMPP\Apache\Conf\Extra\ and open the file "httpd-vhosts.conf" in an editor
+4. Copy the following code into this file:
+
+```
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/BIF4_DAS2_UEB2"
+    ServerName dasu_bif4.com
+	ServerAlias www.dasu_bif4.com
+	DirectoryIndex index.php
+	Redirect permanent / https://localhost
+    ErrorLog "logs/dasu_bif4.log"
+    CustomLog "logs/dasu_bif.access.log" common
+</VirtualHost>
+```
+```
+<VirtualHost *:443>
+    DocumentRoot "C:/xampp/htdocs/BIF4_DAS2_UEB2"
+    #ServerName dasu_bif4.com
+	ServerAlias www.dasu_bif4.com
+	DirectoryIndex index.php
+	SSLEngine on
+	SSLCertificateFile "C:\xampp\apache\conf\ssl.crt\server.crt"
+	SSLCertificateKeyFile "C:\xampp\apache\conf\ssl.key\server.key"
+    ErrorLog "logs/dasu_bif4.log"
+    CustomLog "logs/dasu_bif.access.log" common
+</VirtualHost>
+```
+5. Change the path to where your xampp is installed
+6. When you visit your site for the first time you have to accept the connection, because you are using a self signed certificate
+
+result:
+You can now use HTTPS for your localhost and your HTTP Requests get redirected to https
