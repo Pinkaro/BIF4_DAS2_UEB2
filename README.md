@@ -1,6 +1,19 @@
 
 # Tutorial
 
+## how to run the project
+
+based on:
+1. mySQL(phpmyadmin)
+2. XAMPP
+3. HTTPS -> described in the HTTPS section of this readme.
+
+how to start:
+1. download the source code.
+2. import the DB file into PhpMyAdmin.
+3. follow the steps to set up HTTPS.
+4. run XAMPP and run the webpage.
+
 ### Form Login
 
 ### Http Digest
@@ -8,6 +21,9 @@
 ### 
 
 ### Google Login
+requirements:
+
+
 how does it work:
 1. user clicks on login with google.
 2. the user is redirected to google to login.
