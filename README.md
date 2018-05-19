@@ -39,6 +39,7 @@ how does it work:
 3. Navigate to XAMPP\Apache\Conf\Extra\ and open the file "httpd-vhosts.conf" in an editor
 4. Copy the following code into this file:
 
+```
 <VirtualHost *:80>
     DocumentRoot "C:/xampp/htdocs/BIF4_DAS2_UEB2"
     ServerName dasu_bif4.com
@@ -48,8 +49,8 @@ how does it work:
     ErrorLog "logs/dasu_bif4.log"
     CustomLog "logs/dasu_bif.access.log" common
 </VirtualHost>
-
-
+```
+```
 <VirtualHost *:443>
     DocumentRoot "C:/xampp/htdocs/BIF4_DAS2_UEB2"
     #ServerName dasu_bif4.com
@@ -61,7 +62,7 @@ how does it work:
     ErrorLog "logs/dasu_bif4.log"
     CustomLog "logs/dasu_bif.access.log" common
 </VirtualHost>
-
+```
 5. Change the path to where your xampp is installed
 6. When you visit your site for the first time you have to accept the connection, because you are using a self signed certificate
 
