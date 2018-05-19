@@ -14,6 +14,11 @@ if($_POST && !empty($_POST))
 
     $DatabaseLayer = new DatabaseLayer();
 
-    $DatabaseLayer->createUserNormal($email, $password);
-    
+    //$DatabaseLayer->createUserNormal($email, $password);
+    if($DatabaseLayer->checkUser($email, $password)){
+        echo "User found";
+    }else{
+        echo "User not found";
+    }
+
 }
