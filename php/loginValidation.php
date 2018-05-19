@@ -14,5 +14,6 @@ if($_POST && !empty($_POST))
 
     $DatabaseLayer = new DatabaseLayer();
 
-    echo password_hash($password, PASSWORD_BCRYPT);
+    $DatabaseLayer->createUserNormal($email, $password);
+    
 }

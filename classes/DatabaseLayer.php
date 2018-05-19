@@ -31,9 +31,17 @@ class DatabaseLayer
     public function createUserNormal($email, $password){
         $connection = $this->connectToDB();
 
-        $query = "INSERT INTO user ()";
+        $password = password_hash($password, PASSWORD_BCRYPT);
 
-        $statement = $connection->prepare("");
+        $query = "INSERT INTO user (email, password)
+                  VALUES (?,?)";
+
+        $statement = $connection->prepare($query);
+        $statement->bind_param("ss",$email, $password);
+        $statement->execute();
+
+        $connection->close();
+        $statement->close();
     }
 
     public function createUserGoogle(){
