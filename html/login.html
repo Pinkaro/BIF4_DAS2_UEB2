@@ -7,11 +7,11 @@
 <body>
 <div class="login-page">
     <div class="form">
-        <form class="login-form" action="../php/loginValidation.php" method="post">
-            <label for="username">Username</label>
-            <input type="text" name='username' label='username' placeholder="username"/>
+        <form class="login-form" action="./php/loginValidation.php" method="post">
+            <label for="email">Email</label>
+            <input type="email" required name='email' placeholder="Email"/>
             <label for="password">Password</label>
-            <input type="password" name='password' label='password' placeholder="password"/>
+            <input type="password" required name='password' placeholder="password"/>
             <button>login</button>
             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" align="center"></div>
         </form>

@@ -5,5 +5,14 @@
  * Date: 14/05/2018
  * Time: 13:24
 **/
+include '../classes/DatabaseLayer.php';
 
-var_dump($_POST);
+if($_POST && !empty($_POST))
+{
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $DatabaseLayer = new DatabaseLayer();
+
+    echo password_hash($password, PASSWORD_BCRYPT);
+}
