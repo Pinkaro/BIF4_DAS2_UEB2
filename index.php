@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-include './html/login.html';
+include './php/login.php';
 include './html/links.html';
 ?>
 </body>

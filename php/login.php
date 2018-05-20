@@ -7,6 +7,17 @@
 <body>
 <div class="login-page">
     <div class="form">
+        <div class="status">
+            <?php
+            if(isset($_GET['error'])){
+                $error = $_GET['error'];
+
+                if($error == 1){
+                    echo "<h3>Incorrect login. Try again.</h3>";
+                }
+            }
+            ?>
+        </div>
         <form class="login-form" action="./php/loginValidation.php" method="post">
             <label for="email">Email</label>
             <input type="email" required name='email' placeholder="Email"/>

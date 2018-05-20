@@ -2,21 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: schal
- * Date: 14/05/2018
- * Time: 13:44
+ * Date: 20/05/2018
+ * Time: 17:11
  */
 
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-
-
-$realm = 'Super secret page';
+$realm = 'Restricted area';
 
 //user => password
-$users = array('admin' => 'mypass', 'mingLee' => 'guest');
+$users = array('admin' => 'mypass', 'guest' => 'guest');
 
 
 if (empty($_SERVER['PHP_AUTH_DIGEST'])) {
@@ -35,6 +28,7 @@ if (!($data = http_digest_parse($_SERVER['PHP_AUTH_DIGEST'])) ||
 
 
 // generate the valid response
+echo $data['username'] . ':' . $realm . ':' . $users[$data['username']];
 $A1 = md5($data['username'] . ':' . $realm . ':' . $users[$data['username']]);
 $A2 = md5($_SERVER['REQUEST_METHOD'].':'.$data['uri']);
 $valid_response = md5($A1.':'.$data['nonce'].':'.$data['nc'].':'.$data['cnonce'].':'.$data['qop'].':'.$A2);
@@ -63,10 +57,3 @@ function http_digest_parse($txt)
 
     return $needed_parts ? false : $data;
 }
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-    <img src="../img/secretBanana.jpg">
-</html>
