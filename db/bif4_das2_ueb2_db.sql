@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2018 at 08:34 PM
+-- Generation Time: May 22, 2018 at 03:30 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -31,15 +31,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `user` (
   `Email` varchar(255) COLLATE utf8_bin NOT NULL,
   `Password` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `GoogleToken` varchar(255) COLLATE utf8_bin DEFAULT NULL
+  `GoogleToken` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DigestHash` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`Email`, `Password`, `GoogleToken`) VALUES
-('myemail@guest.at', '$2y$10$cvoL38nREoH5AA7A4x3UkOLQvMAIQOtADpUklPzBhaFSI.pN6m0y6', NULL);
+INSERT INTO `user` (`Email`, `Password`, `GoogleToken`, `DigestHash`) VALUES
+('myemail@guest.at', '$2y$10$cvoL38nREoH5AA7A4x3UkOLQvMAIQOtADpUklPzBhaFSI.pN6m0y6', NULL, '563f118adeb80dd6dcf9c8bde609ccb4');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

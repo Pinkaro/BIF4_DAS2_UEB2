@@ -106,6 +106,47 @@ class DatabaseLayer
         $statement->close();
     }
 
+    public function getDigestHash($email){
+        $connection = $this->connectToDB();
+
+        $query = "SELECT DigestHash FROM user
+                  WHERE Email = ?";
+
+        $statement = $connection->prepare($query);
+        $statement->bind_param("s", $email);
+        $statement->execute();
+        $statement->store_result();
+        $statement->get_result();
+
+        if($statement->num_rows > 1){
+            die("Expected single result but got multiple.");
+        }
+
+        $statement->bind_result($digestHash);
+        $statement->fetch();
+
+        $statement->close();
+        $connection->close();
+
+        return $digestHash;
+    }
+
+    public function updateUserDigestHash($email, $realm, $password){
+        $connection = $this->connectToDB();
+        $digestHash = md5($email.":".$realm.":".$password);
+
+        $query = "UPDATE user
+                  SET DigestHash = ?
+                  WHERE Email = ?";
+
+        $statement = $connection->prepare($query);
+        $statement->bind_param("ss", $digestHash, $email);
+        $statement->execute();
+
+        $connection->close();
+        $statement->close();
+    }
+
     public function checkLogin(){
         if(isset($_SESSION['username'], $_SESSION['login_string'])){
             $username = $_SESSION['username'];
