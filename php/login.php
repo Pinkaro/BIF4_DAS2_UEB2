@@ -20,9 +20,9 @@
         </div>
         <form class="login-form" action="./php/loginValidation.php" method="post">
             <label for="email">Email</label>
-            <input type="email" required name='email' placeholder="Email"/>
+            <input type="email" required name="email" id="email" placeholder="Email"/>
             <label for="password">Password</label>
-            <input type="password" required name='password' placeholder="password"/>
+            <input type="password" required name="password" id="password" placeholder="password"/>
             <button>login</button>
             <p>Remember me?<input type="checkbox" name="remember" value="1"></p>
             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" align="center"></div>
