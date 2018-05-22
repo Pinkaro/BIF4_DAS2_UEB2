@@ -16,6 +16,8 @@ how to start:
 
 ### Form Login
 
+If you check the Remember me box your Username and Password will be saved in a Cookie and will autofill in the Form on your next visit.
+
 ### Http Digest
 
 ### 
