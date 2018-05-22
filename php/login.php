@@ -24,10 +24,34 @@
             <label for="password">Password</label>
             <input type="password" required name='password' placeholder="password"/>
             <button>login</button>
+            <p>Remember me?<input type="checkbox" name="remember" value="1"></p>
             <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" align="center"></div>
         </form>
     </div>
 </div>
+
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Patrick
+ * Date: 22/5/2018
+ * Time: 02:31
+ */
+
+if(isset($_COOKIE['email']) and isset($_COOKIE['password']))
+{
+    $email = $_COOKIE['email'];
+    $password = $_COOKIE['password'];
+
+    echo "<script>
+        document.getElementById('email').value = $email;
+        document.getElementById('password').value = $password;
+        
+        </script>";
+}
+
+
+?>
 
 <script>
     function onSignIn(googleUser) {

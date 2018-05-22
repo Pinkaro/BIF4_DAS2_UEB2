@@ -9,9 +9,16 @@ include '../classes/DatabaseLayer.php';
 
 if($_POST && !empty($_POST))
 {
+
     session_start();
     $email = $_POST['email'];
     $password = $_POST['password'];
+
+    if(isset($_POST['remember']))
+    {
+        setcookie('email', $email, time()+60+60*7, '/', null, true, true);
+        setcookie('password', $password, time()+60+60*7, '/', null, true, true);
+    }
 
     $DatabaseLayer = new DatabaseLayer();
 
