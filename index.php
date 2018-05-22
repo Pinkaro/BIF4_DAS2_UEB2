@@ -9,6 +9,18 @@
 <?php
 include './php/login.php';
 include './html/links.html';
+include_once "./classes/DatabaseLayer.php";
+
+session_start();
+$DataBase = new DatabaseLayer();
+
+if(!$DataBase->checkLogin()) {
+    include './php/login.php';
+    include './html/links.html';
+}
+else{
+    header("Location: Location: http://localhost/BIF4_DAS2_UEB2/php/contactUsForm.php");
+}
 ?>
 </body>
 </html>
