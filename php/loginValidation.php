@@ -16,18 +16,18 @@ if($_POST && !empty($_POST))
 
     if(isset($_POST['remember']))
     {
-        setcookie('email', $email, time()+60+60*7, '/', null, true, true);
-        setcookie('password', $password, time()+60+60*7, '/', null, true, true);
+        setcookie('email', $email, time()+60*60*7, '/', null, true, true);
+        setcookie('password', $password, time()+60*60*7, '/', null, true, true);
     }
 
     $DatabaseLayer = new DatabaseLayer();
 
     //$DatabaseLayer->createUserNormal($email, $password);
     if($DatabaseLayer->login($email, $password)){
-        header("Location: http://localhost/BIF4_DAS2_UEB2/php/contactUsForm.php");
+        header("Location: https://localhost/php/contactUsForm.php");
         die();
     }else{
-        header("Location: http://localhost/BIF4_DAS2_UEB2/index.php?error=1");
+        header("Location: https://localhost/index.php?error=1");
         die();
     }
 }

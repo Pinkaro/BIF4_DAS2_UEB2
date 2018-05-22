@@ -38,14 +38,14 @@
  * Time: 02:31
  */
 
-if(isset($_COOKIE['email']) and isset($_COOKIE['password']))
+if(isset($_COOKIE['email'], $_COOKIE['password']))
 {
     $email = $_COOKIE['email'];
     $password = $_COOKIE['password'];
 
     echo "<script>
-        document.getElementById('email').value = $email;
-        document.getElementById('password').value = $password;
+        document.getElementById('email').value = '$email';
+        document.getElementById('password').value = '$password';
         
         </script>";
 }
@@ -69,7 +69,7 @@ if(isset($_COOKIE['email']) and isset($_COOKIE['password']))
         console.log("ID Token: " + id_token);
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://localhost/BIF4_DAS2_UEB2/google/tokensignin.php');
+        xhr.open('POST', 'https://localhost/google/tokensignin.php');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onload = function() {
             console.log('Signed in as: ' + xhr.responseText);

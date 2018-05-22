@@ -37,7 +37,7 @@ if($DataBase->checkLogin()){
 <?php
 }
 else{
-    header("Location: http://localhost/BIF4_DAS2_UEB2/php/unauthorizedAccessAttempt.php");
+    header("Location: https://localhost/php/unauthorizedAccessAttempt.php");
 }
 
 

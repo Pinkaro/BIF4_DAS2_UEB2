@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 03:30 PM
+-- Generation Time: May 22, 2018 at 05:20 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `bif4_das2_ueb2_db`
 --
+CREATE DATABASE IF NOT EXISTS `bif4_das2_ueb2_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `bif4_das2_ueb2_db`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +30,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `Email` varchar(255) COLLATE utf8_bin NOT NULL,
   `Password` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -46,3 +49,16 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Privileges for `Servah`@`%`
+
+GRANT USAGE ON *.* TO 'Servah'@'%' IDENTIFIED BY PASSWORD '*EF4F55A55DE1798E32129E315B2F7F6A82E602A0';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `bif4_das2_ueb2_db`.* TO 'Servah'@'%';
+
+
+-- Privileges for `Servah`@`localhost`
+
+GRANT USAGE ON *.* TO 'Servah'@'localhost' IDENTIFIED BY PASSWORD '*EF4F55A55DE1798E32129E315B2F7F6A82E602A0';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON `bif4_das2_ueb2_db`.* TO 'Servah'@'localhost';

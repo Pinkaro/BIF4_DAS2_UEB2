@@ -21,7 +21,7 @@
 
 echo "<h1>401 - Unauthorized access attempt <br />
 Redirecting ... </h1>";
-header("refresh:3; url=http://localhost/BIF4_DAS2_UEB2/index.php");
+header("refresh:3; url=https://localhost/index.php");
 die();
 ?>
 
